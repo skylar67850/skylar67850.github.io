@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Skylar's Hacker-Themed Portfolio, Projects, Blog and Developer Hub">
+<title>SKYLAR.EXE</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#030303;
+    --panel:#0a0a0a;
+    --green:#00ff41;
+    --green-dark:#00cc33;
+    --text:#d4ffd4;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Share Tech Mono', monospace;
+    overflow-x:hidden;
+}
+
+#matrix{
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    opacity:.15;
+}
+
+.glow{
+    text-shadow:
+    0 0 5px var(--green),
+    0 0 10px var(--green),
+    0 0 20px var(--green);
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(0,0,0,.92);
+    border-bottom:1px solid var(--green);
+    backdrop-filter:blur(10px);
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+    padding:18px;
+}
+
+nav a{
+    color:var(--green);
+    text-decoration:none;
+    transition:.3s;
+}
+
+nav a:hover{
+    text-shadow:0 0 10px var(--green);
+}
+
+section{
+    padding:110px 10% 80px;
+    min-height:100vh;
+}
+
+.hero{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:4.5rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    max-width:800px;
+    font-size:1.15rem;
+}
+
+.terminal{
+    width:min(900px,100%);
+    background:#000;
+    border:1px solid var(--green);
+    margin-top:40px;
+    padding:25px;
+    text-align:left;
+    box-shadow:0 0 25px rgba(0,255,65,.25);
+}
+
+.terminal-line{
+    margin:10px 0;
+}
+
+.cursor{
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+h2{
+    color:var(--green);
+    margin-bottom:30px;
+    text-shadow:0 0 10px var(--green);
+}
+
+.card{
+    background:rgba(10,10,10,.9);
+    border:1px solid var(--green);
+    padding:25px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.project{
+    background:rgba(10,10,10,.9);
+    border:1px solid var(--green);
+    padding:25px;
+    transition:.3s;
+}
+
+.project:hover{
+    transform:translateY(-6px);
+    box-shadow:0 0 20px rgba(0,255,65,.3);
+}
+
+.skill{
+    display:inline-block;
+    border:1px solid var(--green);
+    padding:10px 15px;
+    margin:5px;
+}
+
+.button{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 22px;
+    border:1px solid var(--green);
+    color:var(--green);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.button:hover{
+    background:var(--green);
+    color:#000;
+}
+
+iframe{
+    width:100%;
+    height:900px;
+    border:1px solid var(--green);
+    background:#000;
+}
+
+.contact-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid var(--green);
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    nav ul{
+        gap:12px;
+    }
+
+    iframe{
+        height:700px;
+    }
+}
+</style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<nav>
+<ul>
+<li><a href="#home">HOME</a></li>
+<li><a href="#about">ABOUT</a></li>
+<li><a href="#skills">SKILLS</a></li>
+<li><a href="#projects">PROJECTS</a></li>
+<li><a href="#blog">BLOG</a></li>
+<li><a href="#contact">CONTACT</a></li>
+</ul>
+</nav>
+
+<section id="home" class="hero">
+
+<h1 class="glow">SKYLAR.EXE</h1>
+
+<p id="typing"></p>
+
+<div class="terminal">
+
+<div class="terminal-line glow">
+root@skylar:~$
+</div>
+
+<div class="terminal-line">
+> whoami
+</div>
+
+<div class="terminal-line">
+Skylar
+</div>
+
+<div class="terminal-line">
+> status
+</div>
+
+<div class="terminal-line glow">
+SYSTEM ONLINE <span class="cursor">█</span>
+</div>
+
+<div class="terminal-line">
+> mission
+</div>
+
+<div class="terminal-line">
+Build cool things. Learn constantly. Ship projects.
+</div>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2>ABOUT</h2>
+
+<div class="card">
+<p>
+Welcome to my digital headquarters.
+This site combines my developer portfolio, project showcase,
+blog, and personal hub into a single hacker-themed experience.
+
+I enjoy building websites, programming applications,
+experimenting with new technologies, and sharing what I learn.
+</p>
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2>SKILLS</h2>
+
+<span class="skill">HTML</span>
+<span class="skill">CSS</span>
+<span class="skill">JavaScript</span>
+<span class="skill">Python</span>
+<span class="skill">Git</span>
+<span class="skill">GitHub</span>
+<span class="skill">Linux</span>
+<span class="skill">Cybersecurity</span>
+<span class="skill">Responsive Design</span>
+<span class="skill">Web Development</span>
+
+</section>
+
+<section id="projects">
+
+<h2>PROJECTS</h2>
+
+<div class="grid">
+
+<div class="project">
+<h3>Portfolio Website</h3>
+<p>My hacker-themed GitHub Pages website.</p>
+</div>
+
+<div class="project">
+<h3>Open Source Projects</h3>
+<p>Community-driven software and experiments.</p>
+</div>
+
+<div class="project">
+<h3>Future Creations</h3>
+<p>More projects will appear here as they are released.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="blog">
+
+<h2>BLOG</h2>
+
+<div class="card">
+
+<p>
+Read my latest articles, updates, tutorials, and development logs.
+</p>
+
+<a
+class="button"
+href="https://skylar67850.blogspot.com"
+target="_blank"
+>
+OPEN BLOG
+</a>
+
+</div>
+
+<br><br>
+
+<iframe
+src="https://skylar67850.blogspot.com"
+title="Skylar Blog">
+</iframe>
+
+</section>
+
+<section id="contact">
+
+<h2>CONTACT</h2>
+
+<div class="contact-grid">
+
+<a class="button" href="https://github.com/" target="_blank">
+GitHub
+</a>
+
+<a class="button" href="mailto:your@email.com">
+Email
+</a>
+
+<a class="button" href="#home">
+Terminal
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 SKYLAR.EXE | ACCESS GRANTED
+</footer>
+
+<script>
+const text =
+"Developer • Creator • Programmer • Welcome to the terminal.";
+
+let i = 0;
+const typing = document.getElementById("typing");
+
+function typeWriter(){
+    if(i < text.length){
+        typing.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter,50);
+    }
+}
+
+typeWriter();
+
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+
+const chars =
+"アカサタナハマヤラワABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+const fontSize = 16;
+let columns = Math.floor(window.innerWidth / fontSize);
+let drops = Array(columns).fill(1);
+
+function drawMatrix(){
+
+    ctx.fillStyle = "rgba(0,0,0,0.05)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#00ff41";
+    ctx.font = fontSize + "px monospace";
+
+    for(let i=0;i<drops.length;i++){
+
+        const char =
+        chars[Math.floor(Math.random()*chars.length)];
+
+        ctx.fillText(
+            char,
+            i * fontSize,
+            drops[i] * fontSize
+        );
+
+        if(
+            drops[i] * fontSize > canvas.height &&
+            Math.random() > 0.975
+        ){
+            drops[i] = 0;
+        }
+
+        drops[i]++;
+    }
+}
+
+setInterval(drawMatrix,33);
+
+window.addEventListener("resize",()=>{
+
+    resizeCanvas();
+
+    columns = Math.floor(window.innerWidth / fontSize);
+    drops = Array(columns).fill(1);
+
+});
+</script>
+
+</body>
+</html>
